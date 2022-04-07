@@ -6,7 +6,9 @@
 #ifndef BOOKSHELF__BOOK_H_
 #define BOOKSHELF__BOOK_H_
 
+#include <set>
 #include <string>
+
 
 using std::string;
 
@@ -27,5 +29,9 @@ auto compareSubject = [](Book *lhs, Book *rhs) {
   return lhs->subject < rhs->subject;
 };
 
+// The std::set linked lists for Title, Author & Subject
+std::set<Book *, decltype(compareTitles)> ByTitle(compareTitles);
+std::set<Book *, decltype(compareAuthors)> ByAuthor(compareAuthors);
+std::set<Book *, decltype(compareSubject)> BySubject(compareSubject);
 
 #endif //BOOKSHELF__BOOK_H_

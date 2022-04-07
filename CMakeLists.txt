@@ -6,4 +6,5 @@ set(CMAKE_CXX_STANDARD 17)
 include_directories(.)
 
 add_executable(Bookshelf
-        main.cpp)
+        main.cpp
+        Shelf.cpp)
