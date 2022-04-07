@@ -8,6 +8,7 @@
 #include <limits>
 #include <string>
 #include "teebuff.h"
+#include "Book.h"
 #if (__cplusplus >= 201703L) // only if compiler is C++17 or newer
 #include <filesystem>  //Need C++ >= 17
 #include <cstring>
@@ -17,13 +18,6 @@ using std::cin;
 using std::cout;
 using std::ifstream;
 using std::ofstream;
-using std::string;
-
-struct Book {
-  string title;
-  string author;
-  string subject;
-};
 const int MAX_BOOKS = 1000;
 int inserted_at;
 int num_books; // The number of books in the unsorted array
@@ -31,17 +25,6 @@ Book books[MAX_BOOKS];  // To store the raw book objects
 ofstream log_file("log.txt");
 teestream teeout(log_file, cout);  // output to LOG and receipt
 //  file simultaneously
-
-// The function to sort the 3 linked lists by Title, Author & Subject
-auto compareTitles = [](Book *lhs, Book *rhs) {
-  return lhs->title < rhs->title;
-};
-auto compareAuthors = [](Book *lhs, Book *rhs) {
-  return lhs->author < rhs->author;
-};
-auto compareSubject = [](Book *lhs, Book *rhs) {
-  return lhs->subject < rhs->subject;
-};
 
 // The std::set linked lists for Title, Author & Subject
 std::set<Book *, decltype(compareTitles)> ByTitle(compareTitles);
