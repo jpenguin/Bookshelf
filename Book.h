@@ -1,7 +1,14 @@
+// Copyright 2022 Joshua M Dye. Licensed under the Educational
+//Community License, Version 2.0 (the "License"); you may not use this file
+//except in compliance with the License. You may obtain a copy of the License at
 //
-// Define the book struct & comparison functions
-// Created by jpenguin on 4/7/22.
+//http://opensource.org/licenses/ECL-2.0
 //
+// Unless required by applicable law or agreed to in writing, software
+//distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+//WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+//License for the specific language governing permissions and limitations under
+//the License.
 
 #ifndef BOOKSHELF__BOOK_H_
 #define BOOKSHELF__BOOK_H_
@@ -18,20 +25,6 @@ struct Book {
   string subject;
 };
 
-// The function to sort the 3 linked lists by Title, Author & Subject
-auto compareTitles = [](Book *lhs, Book *rhs) {
-  return lhs->title < rhs->title;
-};
-auto compareAuthors = [](Book *lhs, Book *rhs) {
-  return lhs->author < rhs->author;
-};
-auto compareSubject = [](Book *lhs, Book *rhs) {
-  return lhs->subject < rhs->subject;
-};
 
-// The std::set linked lists for Title, Author & Subject
-std::set<Book *, decltype(compareTitles)> ByTitle(compareTitles);
-std::set<Book *, decltype(compareAuthors)> ByAuthor(compareAuthors);
-std::set<Book *, decltype(compareSubject)> BySubject(compareSubject);
 
 #endif //BOOKSHELF__BOOK_H_
