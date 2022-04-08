@@ -7,4 +7,4 @@ include_directories(.)
 
 add_executable(Bookshelf
         main.cpp
-        Shelf.cpp)
+        )

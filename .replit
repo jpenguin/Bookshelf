@@ -1,0 +1,2 @@
+language = "cpp"
+run = "mkdir cmake_build; cd cmake_build; cmake ..; make; ./Bookshelf"
