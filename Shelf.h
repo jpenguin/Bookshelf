@@ -33,14 +33,62 @@ class Shelf {
   int num_books; // The number of books in the unsorted array
   Book books[MAX_BOOKS];  // To store the raw book objects
   std::ofstream log_file;
+  /*******************************************************************************
+* Function Name: clearBooks()
+* Parameters:
+* Return Value: void
+* Purpose: Clear all sorted lists
+*******************************************************************************/
   void clearBooks();
+  /*******************************************************************************
+ * Function Name: searchBookByTitle()
+ * Parameters: string of title to be searched for
+ * Return Value: int
+ * Purpose: Look for the index of a book with a given title
+ *******************************************************************************/
   int searchBookByTitle(const string &title);
+/*******************************************************************************
+ * Function Name: loadBooks()
+ * Parameters: None
+ * Return Value: void
+ * Purpose: Load books from file into unsorted array
+ *******************************************************************************/
   void loadBooks();
  public:
+/*******************************************************************************
+ * Function Name: Shelf()
+ * Parameters: None
+ * Return Value:
+ * Purpose: Constructor; set up log file, call load function
+ *******************************************************************************/
   Shelf();
+/*******************************************************************************
+ * function name: savebooks()
+ * parameters: none
+ * return value: void
+ * purpose: Save updated list by title to file
+ *******************************************************************************/
   void saveBooks();
+/*******************************************************************************
+ * Function Name: listBooks()
+ * Parameters: None
+ * Return Value: void
+ * Purpose: Asks for sort type and prints correct list
+ *******************************************************************************/
   void listBooks();
+/*******************************************************************************
+ * Function Name: main()
+ * Parameters:
+ * Return Value: int
+ * Purpose: Inserts book into array, and pointer in sorted lists
+ *******************************************************************************/
   void insertBook();
+/*******************************************************************************
+ * Function Name: deleteBook()
+ * Parameters: None
+ * Return Value: void
+ * Purpose: Asks for title to be deleted, deletes index from search function
+ *******************************************************************************/
   void deleteBook();
  protected:
 };

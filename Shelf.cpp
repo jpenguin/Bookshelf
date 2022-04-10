@@ -109,7 +109,7 @@ Shelf::Shelf() {
 }
 void Shelf::saveBooks() { // Save the list with all deletions and insertions
   ofstream outfile("books.txt");
-
+log_file << "\nUser quit\nSaving books";
   /*for (int i = 0; i < num_books; i++) {
     outfile << books[i].title << "\n";
     outfile << books[i].author << "\n";
@@ -140,6 +140,7 @@ void Shelf::listBooks() {
     // print out the books
     case 49: // 1
       cout << "\nPrinting by title\n\n";
+      log_file << "\nPrinting by title\n\n";
       for (auto const &bi : ByTitle) {
         cout << "\t" << bi->title << "\n";
         cout << "\t" << bi->author << "\n";
@@ -148,6 +149,7 @@ void Shelf::listBooks() {
       break;
     case 50: // 2
       cout << "\nPrinting by author\n\n";
+      log_file << "\nPrinting by author\n\n";
       for (auto const &bi : ByAuthor) {
         cout << "\t" << bi->title << "\n";
         cout << "\t" << bi->author << "\n";
@@ -156,6 +158,7 @@ void Shelf::listBooks() {
       break;
     case 51: // 3
       cout << "\nPrinting by subject\n\n";
+      log_file << "\nPrinting by subject\n\n";
       for (auto const &bi : BySubject) {
         cout << "\t" << bi->title << "\n";
         cout << "\t" << bi->author << "\n";
