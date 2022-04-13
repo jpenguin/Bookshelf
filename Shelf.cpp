@@ -9,6 +9,7 @@
 //WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 //License for the specific language governing permissions and limitations under
 //the License.
+#define EXTRA_LOG // Slower, but adds extra logging information
 
 #include "Shelf.h"
 
@@ -75,7 +76,7 @@ void Shelf::loadBooks() { //Load the previous book list
     ByAuthor.insert(&books[num_books]);
     BySubject.insert(&books[num_books]);
 
-    log_file << book.title << " has been added.";
+    log_file << book.title << " has been added.\n";
     // Find where book was inserted
     inserted_at = 0;
     for (auto const &bi : ByTitle) {
@@ -83,22 +84,24 @@ void Shelf::loadBooks() { //Load the previous book list
         break;
       ++inserted_at;
     }
-    log_file << "\n\tInserted in title array at location " << inserted_at;
+#ifdef EXTRA_LOG
+    log_file << "\tInserted " << book.title << " at location " << inserted_at;
     inserted_at = 0;
     for (auto const &bi : ByAuthor) {
       if (bi->title == book.title)
         break;
       ++inserted_at;
     }
-    log_file << "\n\tInserted in author array at location " << inserted_at;
+    log_file << "\n\tInserted " << book.author << " at location " << inserted_at;
     inserted_at = 0;
     for (auto const &bi : BySubject) {
       if (bi->title == book.title)
         break;
       ++inserted_at;
     }
-    log_file << "\n\tInserted in subject array at location " << inserted_at
+    log_file << "\n\tInserted " << book.subject << " at location " << inserted_at
              << "\n\n";
+#endif
     ++num_books;
   }
   in_file.close();
@@ -208,7 +211,7 @@ void Shelf::insertBook() {
   ByAuthor.insert(&books[num_books]);
   BySubject.insert(&books[num_books]);
   cout << book.title << " has been added.";
-  log_file << book.title << " has been added.";
+  log_file << book.title << " has been added.\n";
   // Find where book was inserted
   inserted_at = 0;
   for (auto const &bi : ByTitle) {
@@ -216,22 +219,25 @@ void Shelf::insertBook() {
       break;
     ++inserted_at;
   }
-  log_file << "\n\tInserted in title array at location " << inserted_at;
-  inserted_at = 0;
-  for (auto const &bi : ByAuthor) {
-    if (bi->title == book.title)
-      break;
-    ++inserted_at;
-  }
-  log_file << "\n\tInserted in author array at location " << inserted_at;
-  inserted_at = 0;
-  for (auto const &bi : BySubject) {
-    if (bi->title == book.title)
-      break;
-    ++inserted_at;
-  }
-  log_file << "\n\tInserted in subject array at location " << inserted_at
-         << "\n\n";
+#ifdef EXTRA_LOG
+  log_file << "\tInserted " << book.title << " at location " << inserted_at;
+    inserted_at = 0;
+    for (auto const &bi : ByAuthor) {
+      if (bi->title == book.title)
+        break;
+      ++inserted_at;
+    }
+    log_file << "\n\tInserted " << book.author << " at location " << inserted_at;
+    inserted_at = 0;
+    for (auto const &bi : BySubject) {
+      if (bi->title == book.title)
+        break;
+      ++inserted_at;
+    }
+    log_file << "\n\tInserted " << book.subject << " at location " << inserted_at
+             << "\n\n";
+#endif
+
 
   ++num_books; // Increment total books
 }
