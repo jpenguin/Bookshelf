@@ -77,6 +77,7 @@ void Shelf::loadBooks() { //Load the previous book list
     BySubject.insert(&books[num_books]);
 
     log_file << book.title << " has been added.\n";
+#ifdef EXTRA_LOG
     // Find where book was inserted
     inserted_at = 0;
     for (auto const &bi : ByTitle) {
@@ -84,7 +85,6 @@ void Shelf::loadBooks() { //Load the previous book list
         break;
       ++inserted_at;
     }
-#ifdef EXTRA_LOG
     log_file << "\tInserted " << book.title << " at location " << inserted_at;
     inserted_at = 0;
     for (auto const &bi : ByAuthor) {
@@ -212,6 +212,7 @@ void Shelf::insertBook() {
   BySubject.insert(&books[num_books]);
   cout << book.title << " has been added.";
   log_file << book.title << " has been added.\n";
+#ifdef EXTRA_LOG
   // Find where book was inserted
   inserted_at = 0;
   for (auto const &bi : ByTitle) {
@@ -219,7 +220,6 @@ void Shelf::insertBook() {
       break;
     ++inserted_at;
   }
-#ifdef EXTRA_LOG
   log_file << "\tInserted " << book.title << " at location " << inserted_at;
     inserted_at = 0;
     for (auto const &bi : ByAuthor) {
