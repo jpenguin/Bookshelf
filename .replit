@@ -1,2 +1,2 @@
 language = "cpp"
-run = "mkdir cmake_build; cd cmake_build; cmake ..; make; ./Bookshelf"
+run = "mkdir cmake_build; cmake -B./cmake_build -H.; make -C./cmake_build; ./cmake_build/Bookshelf"

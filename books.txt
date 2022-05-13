@@ -1,9 +1,9 @@
 1983
 George Orwell
 Politics
-A
-A
-A
+A Name
+A Person
+A Genre
 Fahrenheit 451
 Ray Bradbury
 Sci-fi Dystopia
@@ -22,3 +22,6 @@ Disintegration of the American Dream
 To Kill a Mockingbird
 Harper Lee
 Systematic Injustice
+Test
+Guy
+Things
