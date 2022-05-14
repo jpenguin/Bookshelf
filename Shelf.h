@@ -18,11 +18,13 @@
 #include <iostream>
 #include <limits>
 #include <string>
+#include <cstring>
 #include "Book.h"
 #include <iostream>
-#if (__cplusplus >= 201703L) // only if compiler is C++17 or newer
+#if (__cplusplus >= 201703L)  // only if compiler is C++17 or newer
+#if __has_include(<filesystem>)
 #include <filesystem>  //Need C++ >= 17
-#include <cstring>
+#endif
 #endif
 
 

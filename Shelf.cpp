@@ -51,12 +51,14 @@ void Shelf::loadBooks() { //Load the previous book list
 
   clearBooks(); // Make sure lists are clear
 #if (__cplusplus >= 201703L)  // only if compiler is C++17 or newer
+#if __has_include(<filesystem>)
   if (!std::filesystem::exists("books.txt")) {
     cout << "\nList not found....\n";
     in_file.close();
     insertBook();  //if no existing book list, call insertBook()
     return;
   }
+#endif
 #endif
   if (!in_file.is_open()) {
     cout << "error: failed to open books.txt"
